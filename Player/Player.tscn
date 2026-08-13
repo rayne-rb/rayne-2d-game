@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dhp1trabyvr54"]
+
+[ext_resource type="Texture2D" uid="uid://bdjytljwlcq3v" path="res://Player/Gulemark4bit.png" id="1_3qydi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl2y2"]
+
+[node name="Player" type="Node2D" unique_id=603807850]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=142832982]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1568418195]
+shape = SubResource("CapsuleShape2D_kl2y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1704950062]
+position = Vector2(1, 0)
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("1_3qydi")

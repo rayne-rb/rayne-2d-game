@@ -2,10 +2,10 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/modules.xml
-/.idea.rayne-2d-game.iml
+/.idea.2d-game-in-c-sharp.iml
 /contentModel.xml
 /projectSettingsUpdater.xml
+/modules.xml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Ignored default folder with query files
