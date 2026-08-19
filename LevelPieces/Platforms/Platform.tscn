@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cubjbsn5n4iws"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bijdq"]
+
+[sub_resource type="DrawableTexture2D" id="DrawableTexture2D_3yxlu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl2y2"]
+
+[node name="Platform" type="Node2D" unique_id=999717462]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1926775170]
+scale = Vector2(80, 20)
+mesh = SubResource("QuadMesh_bijdq")
+texture = SubResource("DrawableTexture2D_3yxlu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=742494339]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1748202092]
+scale = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_kl2y2")

@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://dhp1trabyvr54"]
 
 [ext_resource type="Texture2D" uid="uid://bdjytljwlcq3v" path="res://Player/Gulemark4bit.png" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://bfq41112qlis3" path="res://Player/Player.cs" id="1_q3lat"]
+[ext_resource type="Script" uid="uid://cdyhu1j1ouq5" path="res://Components/HealthComponent.cs" id="3_tok1r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl2y2"]
+height = 46.0
 
 [node name="Player" type="Node2D" unique_id=603807850]
+script = ExtResource("1_q3lat")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=142832982]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1568418195]
+position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_kl2y2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1704950062]
 position = Vector2(1, 0)
-scale = Vector2(0.645, 0.645)
 texture = ExtResource("1_3qydi")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=595554100]
+script = ExtResource("3_tok1r")
+metadata/_custom_type_script = "uid://cdyhu1j1ouq5"
