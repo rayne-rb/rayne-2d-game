@@ -1,3 +1,4 @@
+using dgameincsharp.GameCore.Utility;
 using Godot;
 
 namespace dgameincsharp.Components;
@@ -5,14 +6,12 @@ namespace dgameincsharp.Components;
 [GlobalClass]
 public partial class HealthComponent : Node
 {
-	[Export]
-	public int Health = 100;
-	[Export]
-	public int MaxHealth = 100;
-	
+	[Export] public float Health = 100;
+	[Export] public float MaxHealth = 100;
+
 	[Signal]
 	delegate void DeathEventHandler();
-	
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,8 +21,8 @@ public partial class HealthComponent : Node
 	public override void _Process(double delta)
 	{
 	}
-	
-	public void TakeDamage(int damage)
+
+	public void TakeDamage(float damage)
 	{
 		Health -= damage;
 		if (Health <= 0)
@@ -31,12 +30,16 @@ public partial class HealthComponent : Node
 			Health = 0;
 			EmitSignal(nameof(DeathEventHandler));
 		}
+		
+		Loggy.Debug($"Took {damage} damage, {Health} health remaining");
 	}
 
-	public void Heal(int heal)
+	public void Heal(float heal)
 	{
 		Health += heal;
 		if (Health > MaxHealth)
 			Health = MaxHealth;
+		
+		Loggy.Debug($"Healed {heal} health, {Health} health remaining");
 	}
 }

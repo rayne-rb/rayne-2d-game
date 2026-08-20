@@ -19,10 +19,7 @@ public partial class Player : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Loggy.Debug("Initializing Player...");
 		Loggy.Info("Initializing Player...");
-		Loggy.Warning("This is a warning!");
-		Loggy.Error("This is an error!");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
