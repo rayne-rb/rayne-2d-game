@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace dgameincsharp.Components;
 
 [GlobalClass]
 public partial class HealthComponent : Node
@@ -8,6 +9,9 @@ public partial class HealthComponent : Node
 	public int Health = 100;
 	[Export]
 	public int MaxHealth = 100;
+	
+	[Signal]
+	delegate void DeathEventHandler();
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -22,5 +26,17 @@ public partial class HealthComponent : Node
 	public void TakeDamage(int damage)
 	{
 		Health -= damage;
+		if (Health <= 0)
+		{
+			Health = 0;
+			EmitSignal(nameof(DeathEventHandler));
+		}
+	}
+
+	public void Heal(int heal)
+	{
+		Health += heal;
+		if (Health > MaxHealth)
+			Health = MaxHealth;
 	}
 }

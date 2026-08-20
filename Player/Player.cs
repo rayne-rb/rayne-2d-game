@@ -1,79 +1,91 @@
 using Godot;
 using System;
+using dgameincsharp.GameCore.Utility;
 
 public partial class Player : CharacterBody2D
 {
-    [ExportGroup("Movement")] [Export] public float Speed = 45f;
-    [Export] public float Acceleration = 16f;
-    [Export] public float Deceleration = 18f;
-    [Export] public float JumpStrength = 20f;
+	[ExportGroup("Movement")] [Export] public float Speed = 45f;
+	[Export] public float Acceleration = 16f;
+	[Export] public float Deceleration = 18f;
+	[Export] public float JumpStrength = 20f;
 
-    [ExportGroup("Physics")] [Export] public float Gravity = -20f;
+	[ExportGroup("Physics")] [Export] public float Gravity = -20f;
 
-    [ExportGroup("General")] [Export] public Sprite2D PlayerSprite;
+	[ExportGroup("General")] [Export] public Sprite2D PlayerSprite;
 
-    public bool IsGrounded = false;
-    public bool IsJumping = false;
+	public bool IsGrounded = false;
+	public bool IsJumping = false;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-        GD.Print("Player Ready");
-    }
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+		Loggy.Debug("Initializing Player...");
+		Loggy.Info("Initializing Player...");
+		Loggy.Warning("This is a warning!");
+		Loggy.Error("This is an error!");
+	}
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _PhysicsProcess(double delta)
-    {
-        Vector2 velocity = Velocity;
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _PhysicsProcess(double delta)
+	{
+		Vector2 velocity = Velocity;
 
-        IsGrounded = IsOnFloor();
+		IsGrounded = IsOnFloor();
 
-        if (IsGrounded)
-        {
-            if (Input.IsActionPressed("jump"))
-            {
-                velocity.Y = -JumpStrength;
-                IsJumping = true;
-            }
-            else
-            {
-                IsJumping = false;
-            }
-        }
-        else
-        {
-            if (IsJumping)
-            {
-                if (velocity.Y < 0.0 && !Input.IsActionPressed("jump"))
-                {
-                    // velocity.Y -=  0.5f * Gravity * JumpStrength * (float)delta;
-                    velocity.Y = 0;
-                }
-                else
-                {
-                    velocity.Y -= Gravity * (float)delta;
-                }
-            }
-            else
-            {
-                velocity.Y -= Gravity * (float)delta;
-            }
-        }
+		if (IsGrounded)
+		{
+			if (Input.IsActionPressed("jump"))
+			{
+				velocity.Y = -JumpStrength;
+				IsJumping = true;
+			}
+			else
+			{
+				IsJumping = false;
+			}
+		}
+		else
+		{
+			if (IsJumping)
+			{
+				if (velocity.Y < 0.0 && !Input.IsActionPressed("jump"))
+				{
+					velocity.Y -= Gravity * JumpStrength * (float)delta;
+					// velocity.Y = 0;
+				}
+				else
+				{
+					velocity.Y -= Gravity * (float)delta;
+				}
+			}
+			else
+			{
+				velocity.Y -= Gravity * (float)delta;
+			}
+		}
 
-        if (Input.IsActionPressed("move_right"))
-        {
-            velocity.X = Mathf.Lerp(velocity.X, Speed, Acceleration * (float)delta);
-        }
-        else if (Input.IsActionPressed("move_left"))
-        {
-            velocity.X = Mathf.Lerp(velocity.X, -Speed, Acceleration * (float)delta);
-        }
-        else
-        {
-            velocity.X = Mathf.Lerp(velocity.X, 0, Deceleration * (float)delta);
-        }
+		if (Input.IsActionPressed("move_right"))
+		{
+			velocity.X = Mathf.Lerp(velocity.X, Speed, Acceleration * (float)delta);
+			if (PlayerSprite != null)
+			{
+				PlayerSprite.FlipH = false;
+			}
+		}
+		else if (Input.IsActionPressed("move_left"))
+		{
+			velocity.X = Mathf.Lerp(velocity.X, -Speed, Acceleration * (float)delta);
+			if (PlayerSprite != null)
+			{
+				PlayerSprite.FlipH = true;
+			}
+		}
+		else
+		{
+			velocity.X = Mathf.Lerp(velocity.X, 0, Deceleration * (float)delta);
+		}
 
-        Velocity = velocity;
-        MoveAndSlide();
-    }
+		Velocity = velocity;
+		MoveAndSlide();
+	}
 }

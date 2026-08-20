@@ -7,8 +7,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl2y2"]
 height = 46.0
 
-[node name="Player" type="CharacterBody2D" unique_id=142832982]
+[node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite")]
 script = ExtResource("1_q3lat")
+PlayerSprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568418195]
 position = Vector2(-1, 0)
@@ -23,4 +24,4 @@ script = ExtResource("3_tok1r")
 metadata/_custom_type_script = "uid://cdyhu1j1ouq5"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1746413486]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
