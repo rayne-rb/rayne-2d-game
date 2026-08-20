@@ -28,7 +28,7 @@ public partial class HealthComponent : Node
 		if (Health <= 0)
 		{
 			Health = 0;
-			EmitSignal(nameof(DeathEventHandler));
+			// EmitSignal(nameof(DeathEventHandler));
 		}
 		
 		Loggy.Debug($"Took {damage} damage, {Health} health remaining");

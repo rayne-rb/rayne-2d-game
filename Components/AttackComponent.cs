@@ -4,7 +4,7 @@ using Godot;
 namespace dgameincsharp.Components;
 
 [GlobalClass]
-public partial class AttackComponent : Node
+public partial class AttackComponent : Node2D
 {
     [Export] public float BaseDamage = 10;
     [Export] public float CritChance = 0.2f;

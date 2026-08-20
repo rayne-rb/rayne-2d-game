@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://cdyhu1j1ouq5"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1746413486]
 zoom = Vector2(3, 3)
 
-[node name="AttackComponent" type="Node" parent="." unique_id=1607486280]
+[node name="AttackComponent" type="Node2D" parent="." unique_id=1607486280]
 script = ExtResource("4_ddoul")
 metadata/_custom_type_script = "uid://eqif6i7uoncq"
 
