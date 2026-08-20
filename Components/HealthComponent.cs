@@ -8,6 +8,7 @@ public partial class HealthComponent : Node
 {
 	[Export] public float Health = 100;
 	[Export] public float MaxHealth = 100;
+	[Export] public bool IsFriendly = false;
 
 	[Signal]
 	delegate void DeathEventHandler();
@@ -22,16 +23,20 @@ public partial class HealthComponent : Node
 	{
 	}
 
-	public void TakeDamage(float damage)
+	public void TakeDamage(float damage, bool fromFriend = false)
 	{
-		Health -= damage;
-		if (Health <= 0)
+		if (fromFriend && !IsFriendly)
 		{
-			Health = 0;
-			// EmitSignal(nameof(DeathEventHandler));
+			Health -= damage;
+			if (Health <= 0)
+			{
+				Health = 0;
+				// EmitSignal(nameof(DeathEventHandler));
+				GetParent().QueueFree();
+			}
+
+			Loggy.Debug($"Took {damage} damage, {Health} health remaining");
 		}
-		
-		Loggy.Debug($"Took {damage} damage, {Health} health remaining");
 	}
 
 	public void Heal(float heal)
@@ -39,7 +44,7 @@ public partial class HealthComponent : Node
 		Health += heal;
 		if (Health > MaxHealth)
 			Health = MaxHealth;
-		
+
 		Loggy.Debug($"Healed {heal} health, {Health} health remaining");
 	}
 }

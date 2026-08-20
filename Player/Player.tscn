@@ -27,6 +27,7 @@ texture = ExtResource("1_3qydi")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=595554100]
 script = ExtResource("3_tok1r")
+IsFriendly = true
 metadata/_custom_type_script = "uid://cdyhu1j1ouq5"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1746413486]

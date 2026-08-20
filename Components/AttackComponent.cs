@@ -9,6 +9,7 @@ public partial class AttackComponent : Node2D
     [Export] public float BaseDamage = 10;
     [Export] public float CritChance = 0.2f;
     [Export] public float CritMultiplier = 2;
+    [Export] public bool IsFromFriend = false;
 
     public Area2D AttackArea;
 
@@ -76,7 +77,7 @@ public partial class AttackComponent : Node2D
         if (GD.Randf() < CritChance)
             damage *= CritMultiplier;
 
-        target.TakeDamage((int)damage);
+        target.TakeDamage((int)damage, IsFromFriend);
         Loggy.Debug($"Dealt {damage} damage to {target.Name}");
     }
 }
