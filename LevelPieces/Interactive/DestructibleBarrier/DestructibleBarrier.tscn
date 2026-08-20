@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://fkmts64xmpew"]
+
+[ext_resource type="Texture2D" uid="uid://b86rd43sm33p1" path="res://icon.svg" id="1_cppei"]
+[ext_resource type="Script" uid="uid://cdyhu1j1ouq5" path="res://Components/HealthComponent.cs" id="2_6esgr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl2y2"]
+size = Vector2(20, 40)
+
+[node name="DestructibleBarrier" type="StaticBody2D" unique_id=1012702611]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1523838107]
+shape = SubResource("RectangleShape2D_kl2y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1363561580]
+position = Vector2(-1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.15625, 0.31249997)
+texture = ExtResource("1_cppei")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2023953256]
+script = ExtResource("2_6esgr")
+metadata/_custom_type_script = "uid://cdyhu1j1ouq5"

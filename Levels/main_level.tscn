@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bmvwqkg22xtky"]
 
-[ext_resource type="PackedScene" uid="uid://cubjbsn5n4iws" path="res://LevelPieces/Platforms/Platform.tscn" id="1_k0okc"]
+[ext_resource type="PackedScene" uid="uid://cubjbsn5n4iws" path="res://LevelPieces/Static/Platforms/Platform.tscn" id="1_k0okc"]
 [ext_resource type="PackedScene" uid="uid://dhp1trabyvr54" path="res://Player/Player.tscn" id="2_6x3q2"]
+[ext_resource type="PackedScene" uid="uid://fkmts64xmpew" path="res://LevelPieces/Interactive/DestructibleBarrier/DestructibleBarrier.tscn" id="3_6x3q2"]
 
 [node name="MainLevel" type="Node2D" unique_id=1390908573]
 
@@ -17,4 +18,10 @@ Speed = 100.0
 Acceleration = 24.0
 Deceleration = 24.0
 JumpImpulse = 150.0
-Gravity = -150.0
+Gravity = -200.0
+
+[node name="DestructibleBarrier" parent="." unique_id=1012702611 instance=ExtResource("3_6x3q2")]
+position = Vector2(448, 332)
+
+[node name="DestructibleBarrier2" parent="." unique_id=2080092889 instance=ExtResource("3_6x3q2")]
+position = Vector2(548, 401)

@@ -43,7 +43,6 @@ public partial class AttackComponent : Node
     {
         if (@event.IsActionPressed("attack"))
         {
-            Loggy.Debug("Attack input received.");
             Attack();
         }
 
@@ -52,6 +51,7 @@ public partial class AttackComponent : Node
 
     private void Attack()
     {
+        Loggy.Debug("Attack input received.");
         if (AttackArea.HasOverlappingBodies())
         {
             Loggy.Debug("Attacking!");
