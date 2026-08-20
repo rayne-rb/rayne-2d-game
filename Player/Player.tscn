@@ -11,9 +11,10 @@ height = 46.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kl2y2"]
 size = Vector2(50, 28)
 
-[node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite")]
+[node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite", "JumpTimer")]
 script = ExtResource("1_q3lat")
 PlayerSprite = NodePath("Sprite2D")
+JumpTimer = NodePath("JumpTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568418195]
 position = Vector2(-1, 0)
@@ -40,3 +41,6 @@ metadata/_custom_type_script = "uid://eqif6i7uoncq"
 position = Vector2(15, -1)
 shape = SubResource("RectangleShape2D_kl2y2")
 debug_color = Color(0.97284085, 0, 0.4415506, 0.41960785)
+
+[node name="JumpTimer" type="Timer" parent="." unique_id=1550502639]
+wait_time = 0.125

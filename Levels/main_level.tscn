@@ -17,8 +17,7 @@ position = Vector2(379, 299)
 Speed = 100.0
 Acceleration = 24.0
 Deceleration = 24.0
-JumpImpulse = 150.0
-Gravity = -200.0
+JumpImpulse = 200.0
 
 [node name="DestructibleBarrier" parent="." unique_id=1012702611 instance=ExtResource("3_6x3q2")]
 position = Vector2(448, 332)
