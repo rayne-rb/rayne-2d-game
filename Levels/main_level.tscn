@@ -8,6 +8,13 @@
 [node name="Platform" parent="." unique_id=999717462 instance=ExtResource("1_k0okc")]
 position = Vector2(378, 372)
 
-[node name="Player" parent="." unique_id=603807850 instance=ExtResource("2_6x3q2")]
-position = Vector2(377, 338)
-script = null
+[node name="Platform2" parent="." unique_id=1631177410 instance=ExtResource("1_k0okc")]
+position = Vector2(579, 441)
+
+[node name="Player" parent="." unique_id=142832982 instance=ExtResource("2_6x3q2")]
+position = Vector2(379, 299)
+Speed = 100.0
+Acceleration = 24.0
+Deceleration = 24.0
+JumpStrength = 150.0
+Gravity = -100.0

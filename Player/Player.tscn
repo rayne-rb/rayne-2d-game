@@ -7,12 +7,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl2y2"]
 height = 46.0
 
-[node name="Player" type="Node2D" unique_id=603807850]
+[node name="Player" type="CharacterBody2D" unique_id=142832982]
 script = ExtResource("1_q3lat")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=142832982]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1568418195]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568418195]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_kl2y2")
 
@@ -23,3 +21,6 @@ texture = ExtResource("1_3qydi")
 [node name="HealthComponent" type="Node" parent="." unique_id=595554100]
 script = ExtResource("3_tok1r")
 metadata/_custom_type_script = "uid://cdyhu1j1ouq5"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1746413486]
+zoom = Vector2(4, 4)
