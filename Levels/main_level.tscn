@@ -16,5 +16,5 @@ position = Vector2(379, 299)
 Speed = 100.0
 Acceleration = 24.0
 Deceleration = 24.0
-JumpStrength = 150.0
-Gravity = -100.0
+JumpImpulse = 150.0
+Gravity = -150.0

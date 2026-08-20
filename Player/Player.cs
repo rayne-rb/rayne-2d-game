@@ -7,7 +7,7 @@ public partial class Player : CharacterBody2D
 	[ExportGroup("Movement")] [Export] public float Speed = 45f;
 	[Export] public float Acceleration = 16f;
 	[Export] public float Deceleration = 18f;
-	[Export] public float JumpStrength = 20f;
+	[Export] public float JumpImpulse = 20f;
 
 	[ExportGroup("Physics")] [Export] public float Gravity = -20f;
 
@@ -34,9 +34,9 @@ public partial class Player : CharacterBody2D
 
 		if (IsGrounded)
 		{
-			if (Input.IsActionPressed("jump"))
+			if (Input.IsActionJustPressed("jump"))
 			{
-				velocity.Y = -JumpStrength;
+				velocity.Y = -JumpImpulse;
 				IsJumping = true;
 			}
 			else
@@ -50,8 +50,8 @@ public partial class Player : CharacterBody2D
 			{
 				if (velocity.Y < 0.0 && !Input.IsActionPressed("jump"))
 				{
-					velocity.Y -= Gravity * JumpStrength * (float)delta;
-					// velocity.Y = 0;
+					// velocity.Y -= Gravity * JumpImpulse * (float)delta;
+					velocity.Y = 0;
 				}
 				else
 				{
