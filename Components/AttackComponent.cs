@@ -55,7 +55,7 @@ public partial class AttackComponent : Node2D
         Loggy.Debug("Attack input received.");
         if (AttackArea.HasOverlappingBodies())
         {
-            Loggy.Debug("Attacking!");
+            // Loggy.Debug("Attacking!");
             var bodies = AttackArea.GetOverlappingBodies();
             foreach (var body in bodies)
             {
@@ -72,12 +72,13 @@ public partial class AttackComponent : Node2D
 
     public void DealDamage(HealthComponent target)
     {
-        Loggy.Debug("Dealing Damage!");
+        // Loggy.Debug("Dealing Damage!");
         var damage = BaseDamage;
         if (GD.Randf() < CritChance)
             damage *= CritMultiplier;
 
+        Loggy.Debug($"Is from friend: {IsFromFriend}");
         target.TakeDamage((int)damage, IsFromFriend);
-        Loggy.Debug($"Dealt {damage} damage to {target.Name}");
+        // Loggy.Debug($"Dealt {damage} damage to {target.Name}");
     }
 }

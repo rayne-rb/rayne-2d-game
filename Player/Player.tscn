@@ -13,6 +13,7 @@ size = Vector2(50, 28)
 
 [node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite", "JumpTimer")]
 script = ExtResource("1_q3lat")
+Speed = 80.0
 JumpImpulse = 200.0
 PlayerSprite = NodePath("Sprite2D")
 JumpTimer = NodePath("JumpTimer")
@@ -35,6 +36,7 @@ zoom = Vector2(3, 3)
 
 [node name="AttackComponent" type="Node2D" parent="." unique_id=1607486280]
 script = ExtResource("4_ddoul")
+IsFromFriend = true
 metadata/_custom_type_script = "uid://eqif6i7uoncq"
 
 [node name="Area2D" type="Area2D" parent="AttackComponent" unique_id=1001648273]
