@@ -13,6 +13,7 @@ size = Vector2(50, 28)
 
 [node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite", "JumpTimer")]
 script = ExtResource("1_q3lat")
+JumpImpulse = 200.0
 PlayerSprite = NodePath("Sprite2D")
 JumpTimer = NodePath("JumpTimer")
 
