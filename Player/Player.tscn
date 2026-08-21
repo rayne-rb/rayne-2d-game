@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bdjytljwlcq3v" path="res://Player/Gulemark4bit.png" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://bfq41112qlis3" path="res://Player/Player.cs" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://cdyhu1j1ouq5" path="res://Components/HealthComponent.cs" id="3_tok1r"]
-[ext_resource type="Script" uid="uid://eqif6i7uoncq" path="res://Components/AttackComponent.cs" id="4_ddoul"]
+[ext_resource type="Script" uid="uid://g2kj84xutm71" path="res://Components/MeleeAttackComponent.cs" id="4_ddoul"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl2y2"]
 height = 46.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl2y2"]
-size = Vector2(50, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bijdq"]
+size = Vector2(35, 22)
 
 [node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite", "JumpTimer")]
 script = ExtResource("1_q3lat")
@@ -34,17 +34,18 @@ metadata/_custom_type_script = "uid://cdyhu1j1ouq5"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1746413486]
 zoom = Vector2(3, 3)
 
-[node name="AttackComponent" type="Node2D" parent="." unique_id=1607486280]
-script = ExtResource("4_ddoul")
-IsFromFriend = true
-metadata/_custom_type_script = "uid://eqif6i7uoncq"
-
-[node name="Area2D" type="Area2D" parent="AttackComponent" unique_id=1001648273]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/Area2D" unique_id=1605593411]
-position = Vector2(15, -1)
-shape = SubResource("RectangleShape2D_kl2y2")
-debug_color = Color(0.97284085, 0, 0.4415506, 0.41960785)
-
 [node name="JumpTimer" type="Timer" parent="." unique_id=1550502639]
 wait_time = 0.125
+
+[node name="MeleeAttackComponent" type="Node2D" parent="." unique_id=1178354862 node_paths=PackedStringArray("AttackArea")]
+script = ExtResource("4_ddoul")
+AttackArea = NodePath("../Area2D")
+IsFromFriend = true
+metadata/_custom_type_script = "uid://g2kj84xutm71"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=592620499]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1628570319]
+position = Vector2(7.5, -5)
+shape = SubResource("RectangleShape2D_bijdq")
+debug_color = Color(0.96568924, 0, 0.4880948, 0.41960785)

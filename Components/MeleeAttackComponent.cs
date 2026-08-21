@@ -3,6 +3,7 @@ using Godot;
 
 namespace dgameincsharp.Components;
 
+[GlobalClass]
 public partial class MeleeAttackComponent : AttackComponent
 {
     [ExportGroup("Melee Attack")]
