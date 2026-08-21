@@ -18,7 +18,7 @@ public partial class Player : CharacterBody2D
 	[Export] public float MaxVelocity = 300f;
 
 	[ExportGroup("General")] 
-	[Export] public Sprite2D PlayerSprite;
+	[Export] public AnimatedSprite2D PlayerSprite;
 	[Export] public Timer JumpTimer;
 
 	public bool IsGrounded = false;
