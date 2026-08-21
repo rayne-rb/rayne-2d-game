@@ -99,6 +99,7 @@ public partial class Player : CharacterBody2D
 
 		if (Input.IsActionPressed("move_right"))
 		{
+			PlayerSprite.Animation = "Walk";
 			velocity.X = Mathf.Lerp(velocity.X, Speed, Acceleration * (float)delta);
 			if (PlayerSprite != null)
 			{
@@ -107,6 +108,7 @@ public partial class Player : CharacterBody2D
 		}
 		else if (Input.IsActionPressed("move_left"))
 		{
+			PlayerSprite.Animation = "Walk";
 			velocity.X = Mathf.Lerp(velocity.X, -Speed, Acceleration * (float)delta);
 			if (PlayerSprite != null)
 			{
@@ -115,6 +117,7 @@ public partial class Player : CharacterBody2D
 		}
 		else
 		{
+			PlayerSprite.Animation = "Idle";
 			velocity.X = Mathf.Lerp(velocity.X, 0, Deceleration * (float)delta);
 		}
 
