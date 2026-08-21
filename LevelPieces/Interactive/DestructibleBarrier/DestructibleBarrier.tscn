@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://fkmts64xmpew"]
 
-[ext_resource type="Texture2D" uid="uid://b86rd43sm33p1" path="res://icon.svg" id="1_cppei"]
+[ext_resource type="Texture2D" uid="uid://cymlx67c76qt0" path="res://LevelPieces/Static/Platforms/BrickPlatfrom1.png" id="1_6esgr"]
 [ext_resource type="Script" uid="uid://cdyhu1j1ouq5" path="res://Components/HealthComponent.cs" id="2_6esgr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kl2y2"]
-size = Vector2(20, 40)
+size = Vector2(16, 32)
 
 [node name="DestructibleBarrier" type="StaticBody2D" unique_id=1012702611]
 
@@ -12,9 +12,16 @@ size = Vector2(20, 40)
 shape = SubResource("RectangleShape2D_kl2y2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1363561580]
-position = Vector2(-1.9073486e-06, 1.9073486e-06)
-scale = Vector2(0.15625, 0.31249997)
-texture = ExtResource("1_cppei")
+position = Vector2(0, 8)
+texture = ExtResource("1_6esgr")
+region_enabled = true
+region_rect = Rect2(32, 32, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1060843895]
+position = Vector2(0, -8)
+texture = ExtResource("1_6esgr")
+region_enabled = true
+region_rect = Rect2(32, 32, 16, 16)
 
 [node name="HealthComponent" type="Node" parent="." unique_id=2023953256]
 script = ExtResource("2_6esgr")

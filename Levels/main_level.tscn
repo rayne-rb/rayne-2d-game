@@ -9,14 +9,17 @@
 [node name="Platform" parent="." unique_id=999717462 instance=ExtResource("1_k0okc")]
 position = Vector2(378, 372)
 
+[node name="Platform3" parent="." unique_id=1987879732 instance=ExtResource("1_k0okc")]
+position = Vector2(290, 395)
+
 [node name="Platform2" parent="." unique_id=1631177410 instance=ExtResource("1_k0okc")]
-position = Vector2(579, 441)
+position = Vector2(442, 372)
 
 [node name="DestructibleBarrier" parent="." unique_id=1012702611 instance=ExtResource("3_6x3q2")]
-position = Vector2(448, 332)
+position = Vector2(466, 348)
 
 [node name="DestructibleBarrier2" parent="." unique_id=2080092889 instance=ExtResource("3_6x3q2")]
-position = Vector2(548, 401)
+position = Vector2(314, 371)
 
 [node name="Player" parent="." unique_id=142832982 instance=ExtResource("2_6x3q2")]
 position = Vector2(383, 327)
