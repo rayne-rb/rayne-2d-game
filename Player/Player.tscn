@@ -490,7 +490,7 @@ position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_lydg0")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.8707099
+frame_progress = 0.58804405
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568418195]
 shape = SubResource("CapsuleShape2D_kl2y2")
@@ -506,9 +506,10 @@ zoom = Vector2(3, 3)
 [node name="JumpTimer" type="Timer" parent="." unique_id=1550502639]
 wait_time = 0.125
 
-[node name="MeleeAttackComponent" type="Node2D" parent="." unique_id=1178354862 node_paths=PackedStringArray("AttackArea")]
+[node name="MeleeAttackComponent" type="Node2D" parent="." unique_id=1178354862 node_paths=PackedStringArray("AttackArea", "PlayerBody")]
 script = ExtResource("4_ddoul")
 AttackArea = NodePath("../Area2D")
+PlayerBody = NodePath("..")
 IsFromFriend = true
 metadata/_custom_type_script = "uid://g2kj84xutm71"
 

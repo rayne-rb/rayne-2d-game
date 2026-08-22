@@ -1,3 +1,4 @@
+using System;
 using dgameincsharp.GameCore.Utility;
 using Godot;
 
@@ -8,9 +9,19 @@ public partial class MeleeAttackComponent : AttackComponent
 {
     [ExportGroup("Melee Attack")]
     [Export] public Area2D AttackArea;
+    [Export] public Player.Player PlayerBody;
     
     public override void _Ready()
     {
+        if (PlayerBody != null)
+        {
+            PlayerBody.PlayerDirectionChanged += ChangeAttackDirection;
+        }
+        else
+        {
+            Loggy.Warning("PlayerBody null!");
+        }
+        
         if (AttackArea == null)
         {
             Loggy.Error("Attack Area not set!");
@@ -47,4 +58,14 @@ public partial class MeleeAttackComponent : AttackComponent
             }
         }
     }
+
+    public void ChangeAttackDirection(object sender, string direction)
+    {
+        var transform = AttackArea.Transform;
+        transform.X = -transform.X;
+        
+        AttackArea.Transform  = transform;
+        Loggy.Debug($"Transform.X {transform.X} | Transform.Y {transform.Y} | Direction {direction}");
+    }
+    
 }

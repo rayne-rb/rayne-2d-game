@@ -1,8 +1,9 @@
-using Godot;
 using System;
-using System.Threading;
 using dgameincsharp.GameCore.Utility;
+using Godot;
 using Timer = Godot.Timer;
+
+namespace dgameincsharp.Player;
 
 public partial class Player : CharacterBody2D
 {
@@ -21,6 +22,9 @@ public partial class Player : CharacterBody2D
 	[Export] public AnimatedSprite2D PlayerSprite;
 	[Export] public Timer JumpTimer;
 
+	public event EventHandler<string> PlayerDirectionChanged;
+	public string PlayerDirection = "right";
+	
 	public bool IsGrounded = false;
 	public bool WasGrounded = false;
 	public bool IsJumping = false;
@@ -38,7 +42,7 @@ public partial class Player : CharacterBody2D
 		Vector2 velocity = Velocity;
 
 		IsGrounded = IsOnFloor();
-
+		
 		if (IsGrounded)
 		{
 			if (Input.IsActionJustPressed("jump"))
@@ -105,6 +109,16 @@ public partial class Player : CharacterBody2D
 			{
 				PlayerSprite.FlipH = false;
 			}
+
+			if (PlayerDirection != "right")
+			{
+				PlayerDirection = "right";
+				
+				if (PlayerDirectionChanged != null)
+				{
+					PlayerDirectionChanged.Invoke(this, "right");
+				}
+			}
 		}
 		else if (Input.IsActionPressed("move_left"))
 		{
@@ -113,6 +127,16 @@ public partial class Player : CharacterBody2D
 			if (PlayerSprite != null)
 			{
 				PlayerSprite.FlipH = true;
+			}
+
+			if (PlayerDirection != "left")
+			{
+				PlayerDirection = "left";
+			
+				if (PlayerDirectionChanged != null)
+				{
+					PlayerDirectionChanged.Invoke(this, "left");
+				}
 			}
 		}
 		else
