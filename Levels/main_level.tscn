@@ -60,19 +60,70 @@ position = Vector2(206, 360)
 position = Vector2(442, 372)
 
 [node name="DestructibleBarrier" parent="." unique_id=1012702611 instance=ExtResource("3_6x3q2")]
-position = Vector2(466, 348)
+position = Vector2(466, 356)
 
 [node name="DestructibleBarrier3" parent="." unique_id=1510207945 instance=ExtResource("3_6x3q2")]
-position = Vector2(466, 316)
+position = Vector2(466, 324)
+
+[node name="DestructibleBarrier9" parent="." unique_id=1334597478 instance=ExtResource("3_6x3q2")]
+position = Vector2(466, 340)
 
 [node name="DestructibleBarrier4" parent="." unique_id=239535440 instance=ExtResource("3_6x3q2")]
-position = Vector2(466, 284)
+position = Vector2(466, 292)
+
+[node name="DestructibleBarrier8" parent="." unique_id=1334557652 instance=ExtResource("3_6x3q2")]
+position = Vector2(466, 308)
 
 [node name="DestructibleBarrier5" parent="." unique_id=2096259756 instance=ExtResource("3_6x3q2")]
-position = Vector2(588, 257)
+position = Vector2(588, 265)
+
+[node name="DestructibleBarrier10" parent="." unique_id=1628969509 instance=ExtResource("3_6x3q2")]
+position = Vector2(588, 249)
+
+[node name="DestructibleBarrier6" parent="." unique_id=511951578 instance=ExtResource("3_6x3q2")]
+position = Vector2(466, 276)
+
+[node name="DestructibleBarrier7" parent="." unique_id=409292063 instance=ExtResource("3_6x3q2")]
+position = Vector2(314, 363)
 
 [node name="DestructibleBarrier2" parent="." unique_id=2080092889 instance=ExtResource("3_6x3q2")]
-position = Vector2(314, 371)
+position = Vector2(314, 379)
+
+[node name="DestructibleBarrier11" parent="." unique_id=2010897921 instance=ExtResource("3_6x3q2")]
+position = Vector2(314, 331)
+
+[node name="DestructibleBarrier12" parent="." unique_id=59948201 instance=ExtResource("3_6x3q2")]
+position = Vector2(314, 347)
+
+[node name="DestructibleBarrier19" parent="." unique_id=1599423139 instance=ExtResource("3_6x3q2")]
+position = Vector2(482, 276)
+
+[node name="DestructibleBarrier21" parent="." unique_id=564117882 instance=ExtResource("3_6x3q2")]
+position = Vector2(434, 276)
+
+[node name="DestructibleBarrier22" parent="." unique_id=1132091640 instance=ExtResource("3_6x3q2")]
+position = Vector2(450, 276)
+
+[node name="DestructibleBarrier20" parent="." unique_id=1709608085 instance=ExtResource("3_6x3q2")]
+position = Vector2(482, 292)
+
+[node name="DestructibleBarrier15" parent="." unique_id=751553144 instance=ExtResource("3_6x3q2")]
+position = Vector2(177, 282)
+
+[node name="DestructibleBarrier16" parent="." unique_id=778073545 instance=ExtResource("3_6x3q2")]
+position = Vector2(177, 298)
+
+[node name="DestructibleBarrier13" parent="." unique_id=291291614 instance=ExtResource("3_6x3q2")]
+position = Vector2(230, 328)
+
+[node name="DestructibleBarrier14" parent="." unique_id=2119172533 instance=ExtResource("3_6x3q2")]
+position = Vector2(230, 344)
+
+[node name="DestructibleBarrier17" parent="." unique_id=879421531 instance=ExtResource("3_6x3q2")]
+position = Vector2(177, 250)
+
+[node name="DestructibleBarrier18" parent="." unique_id=1111051190 instance=ExtResource("3_6x3q2")]
+position = Vector2(177, 266)
 
 [node name="Player" parent="." unique_id=142832982 instance=ExtResource("2_6x3q2")]
 position = Vector2(383, 327)
