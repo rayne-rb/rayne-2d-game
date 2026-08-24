@@ -38,10 +38,6 @@ region = Rect2(128, 64, 64, 64)
 atlas = ExtResource("2_8g4oa")
 region = Rect2(192, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3e2x5"]
-atlas = ExtResource("2_8g4oa")
-region = Rect2(0, 128, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_00hy0"]
 atlas = ExtResource("2_8g4oa")
 region = Rect2(64, 128, 64, 64)
@@ -330,14 +326,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_kb1oy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3e2x5")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_00hy0")
 }],
 "loop": 0,
 "name": &"Bite",
-"speed": 12.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -552,7 +545,7 @@ radius = 8.0
 height = 46.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bijdq"]
-size = Vector2(32, 22)
+size = Vector2(36, 22)
 
 [node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite", "JumpTimer", "MeleeAttackComponent")]
 script = ExtResource("1_q3lat")
@@ -596,6 +589,6 @@ metadata/_custom_type_script = "uid://g2kj84xutm71"
 [node name="Area2D" type="Area2D" parent="." unique_id=592620499]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1628570319]
-position = Vector2(8, -4)
+position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_bijdq")
 debug_color = Color(0.96568924, 0, 0.4880948, 0.41960785)
