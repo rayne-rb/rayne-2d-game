@@ -1,4 +1,5 @@
 using System;
+using dgameincsharp.Components;
 using dgameincsharp.GameCore.Utility;
 using Godot;
 using Timer = Godot.Timer;
@@ -21,6 +22,7 @@ public partial class Player : CharacterBody2D
 	[ExportGroup("General")] 
 	[Export] public AnimatedSprite2D PlayerSprite;
 	[Export] public Timer JumpTimer;
+	[Export] public MeleeAttackComponent MeleeAttackComponent;
 
 	public event EventHandler<string> PlayerDirectionChanged;
 	public string PlayerDirection = "right";
@@ -28,10 +30,22 @@ public partial class Player : CharacterBody2D
 	public bool IsGrounded = false;
 	public bool WasGrounded = false;
 	public bool IsJumping = false;
+	public bool PriorityAnimationPlaying = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		
+		if (MeleeAttackComponent != null)
+		{
+			MeleeAttackComponent.EntityAttacking += PlayAttackAnimation;
+			PlayerSprite.AnimationFinished += ReturnToNormalAnimation;
+		}
+		else
+		{
+			Loggy.Warning("Attack Component null!");
+		}
+		
 		JumpTimer.OneShot = true;
 		Loggy.Info("Initializing Player...");
 	}
@@ -103,7 +117,11 @@ public partial class Player : CharacterBody2D
 
 		if (Input.IsActionPressed("move_right"))
 		{
-			PlayerSprite.Animation = "Walk";
+			if (!PriorityAnimationPlaying)
+			{
+				PlayerSprite.Animation = "Walk";
+			}
+			
 			velocity.X = Mathf.Lerp(velocity.X, Speed, Acceleration * (float)delta);
 			if (PlayerSprite != null)
 			{
@@ -122,7 +140,10 @@ public partial class Player : CharacterBody2D
 		}
 		else if (Input.IsActionPressed("move_left"))
 		{
-			PlayerSprite.Animation = "Walk";
+			if (!PriorityAnimationPlaying)
+			{
+				PlayerSprite.Animation = "Walk";
+			}
 			velocity.X = Mathf.Lerp(velocity.X, -Speed, Acceleration * (float)delta);
 			if (PlayerSprite != null)
 			{
@@ -141,11 +162,35 @@ public partial class Player : CharacterBody2D
 		}
 		else
 		{
-			PlayerSprite.Animation = "Idle";
+
+			if (!PriorityAnimationPlaying)
+			{
+				PlayerSprite.Animation = "Idle";
+			}
 			velocity.X = Mathf.Lerp(velocity.X, 0, Deceleration * (float)delta);
+		}
+
+		if (Input.IsActionPressed("look_down"))
+		{
+			
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void ReturnToNormalAnimation()
+	{
+		Loggy.Debug("Returning to normal animation!");
+		PriorityAnimationPlaying = false;
+		MeleeAttackComponent.IsAttacking = false;
+		PlayerSprite.Play();
+	}
+
+	public void PlayAttackAnimation(object? sender, EventArgs e)
+	{
+		Loggy.Debug("Playing Bite Animation!");
+		PriorityAnimationPlaying = true;
+		PlayerSprite.Animation = "Bite";
 	}
 }
