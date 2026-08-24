@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://biygxydeypms2"]
+
+[ext_resource type="Texture2D" uid="uid://sfw7mqve4e8f" path="res://LevelPieces/Interactive/EvilSpikes/EvilSpikes.png" id="1_wpdu6"]
+[ext_resource type="Script" uid="uid://g2kj84xutm71" path="res://Components/MeleeAttackComponent.cs" id="2_ke1mw"]
+
+[node name="EvilSpike" type="Node2D" unique_id=285438812]
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1134861166]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DamageArea" unique_id=1099240825]
+position = Vector2(-8, 8)
+polygon = PackedVector2Array(3, 0, 8, -16, 13, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1862559307]
+texture = ExtResource("1_wpdu6")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="MeleeAttackComponent" type="Node2D" parent="." unique_id=1696594861 node_paths=PackedStringArray("AttackArea", "AnimationAttackDelayTimer")]
+script = ExtResource("2_ke1mw")
+AttackArea = NodePath("../DamageArea")
+AnimationAttackDelayTimer = NodePath("../AttackDelayTimer")
+AlwaysActive = true
+BaseDamage = 20.0
+metadata/_custom_type_script = "uid://g2kj84xutm71"
+
+[node name="AttackDelayTimer" type="Timer" parent="." unique_id=799125364]
+wait_time = 0.5
+autostart = true

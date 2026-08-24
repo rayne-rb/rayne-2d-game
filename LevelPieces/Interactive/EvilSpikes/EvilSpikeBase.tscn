@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b5x0t3m1k26ed"]
+
+[ext_resource type="Texture2D" uid="uid://sfw7mqve4e8f" path="res://LevelPieces/Interactive/EvilSpikes/EvilSpikes.png" id="1_xq5pd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl2y2"]
+size = Vector2(10, 16)
+
+[node name="EvilSpikeBase" type="Node2D" unique_id=1253525871]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1699790338]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=242757901]
+shape = SubResource("RectangleShape2D_kl2y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=935185273]
+texture = ExtResource("1_xq5pd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

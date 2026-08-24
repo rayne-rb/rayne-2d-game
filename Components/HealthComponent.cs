@@ -25,7 +25,7 @@ public partial class HealthComponent : Node
 
 	public void TakeDamage(float damage, bool fromFriend = false)
 	{
-		if (fromFriend && !IsFriendly)
+		if (fromFriend && !IsFriendly || !fromFriend && IsFriendly)
 		{
 			Health -= damage;
 			if (Health <= 0)

@@ -10,6 +10,7 @@ public partial class MeleeAttackComponent : AttackComponent
     [ExportGroup("Melee Attack")] [Export] public Area2D AttackArea;
     [Export] public Player.Player PlayerBody;
     [Export] public Timer AnimationAttackDelayTimer;
+    [Export] public bool AlwaysActive = false;
     public event EventHandler EntityAttacking;
     public bool IsAttacking = false;
 
@@ -26,7 +27,6 @@ public partial class MeleeAttackComponent : AttackComponent
 
         if (AnimationAttackDelayTimer != null)
         {
-            AnimationAttackDelayTimer.OneShot = true;
             AnimationAttackDelayTimer.Timeout += Attack;
         }
         else
@@ -41,15 +41,31 @@ public partial class MeleeAttackComponent : AttackComponent
         }
     }
 
+    public override void _Process(double delta)
+    {
+        if (AlwaysActive)
+        {
+            if (!IsAttacking)
+            {
+                Attack();
+            }
+        }
+    }
+
     public override void _UnhandledInput(InputEvent @event)
     {
+        if (PlayerBody == null) return;
+
         if (@event.IsActionPressed("attack"))
         {
-            Loggy.Debug("Starting Attack Delay!");
-            EntityAttacking?.Invoke(this, EventArgs.Empty);
-            AnimationAttackDelayTimer.Start();
-            // Attack();
-            //Attack will happen when the timer times out.
+            if (!IsAttacking)
+            {
+                Loggy.Debug("Starting Attack Delay!");
+                EntityAttacking?.Invoke(this, EventArgs.Empty);
+                AnimationAttackDelayTimer.Start();
+                // Attack();
+                //Attack will happen when the timer times out.
+            }
         }
 
         base._UnhandledInput(@event);
@@ -57,21 +73,18 @@ public partial class MeleeAttackComponent : AttackComponent
 
     public void Attack()
     {
-        if (!IsAttacking)
+        if (AttackArea.HasOverlappingBodies())
         {
-            IsAttacking = true;
-            if (AttackArea.HasOverlappingBodies())
+            // Loggy.Debug("Attacking!");
+            var bodies = AttackArea.GetOverlappingBodies();
+            foreach (var body in bodies)
             {
-                // Loggy.Debug("Attacking!");
-                var bodies = AttackArea.GetOverlappingBodies();
-                foreach (var body in bodies)
+                foreach (var child in body.GetChildren())
                 {
-                    foreach (var child in body.GetChildren())
+                    if (child is HealthComponent healthComponent)
                     {
-                        if (child is HealthComponent healthComponent)
-                        {
-                            DealDamage(healthComponent);
-                        }
+                        IsAttacking = true;
+                        DealDamage(healthComponent);
                     }
                 }
             }

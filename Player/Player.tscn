@@ -579,6 +579,7 @@ wait_time = 0.125
 
 [node name="AttackDelayTimer" type="Timer" parent="." unique_id=437097363]
 wait_time = 0.5
+one_shot = true
 
 [node name="MeleeAttackComponent" type="Node2D" parent="." unique_id=1178354862 node_paths=PackedStringArray("AttackArea", "PlayerBody", "AnimationAttackDelayTimer")]
 script = ExtResource("4_ddoul")

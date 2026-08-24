@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cubjbsn5n4iws" path="res://LevelPieces/Static/Platforms/Platform.tscn" id="1_k0okc"]
 [ext_resource type="PackedScene" uid="uid://dhp1trabyvr54" path="res://Player/Player.tscn" id="2_6x3q2"]
 [ext_resource type="PackedScene" uid="uid://fkmts64xmpew" path="res://LevelPieces/Interactive/DestructibleBarrier/DestructibleBarrier.tscn" id="3_6x3q2"]
+[ext_resource type="PackedScene" uid="uid://biygxydeypms2" path="res://LevelPieces/Interactive/EvilSpikes/EvilSpike.tscn" id="4_13urm"]
+[ext_resource type="PackedScene" uid="uid://b5x0t3m1k26ed" path="res://LevelPieces/Interactive/EvilSpikes/EvilSpikeBase.tscn" id="5_6opdx"]
 
 [node name="MainLevel" type="Node2D" unique_id=1390908573]
 
@@ -20,6 +22,30 @@ position = Vector2(780, 281)
 
 [node name="Platform3" parent="." unique_id=1987879732 instance=ExtResource("1_k0okc")]
 position = Vector2(290, 395)
+
+[node name="Platform10" parent="." unique_id=689497010 instance=ExtResource("1_k0okc")]
+position = Vector2(487, 476)
+
+[node name="Platform11" parent="." unique_id=1831008182 instance=ExtResource("1_k0okc")]
+position = Vector2(551, 476)
+
+[node name="Platform12" parent="." unique_id=1033339429 instance=ExtResource("1_k0okc")]
+position = Vector2(615, 476)
+
+[node name="Platform13" parent="." unique_id=828368552 instance=ExtResource("1_k0okc")]
+position = Vector2(679, 476)
+
+[node name="Platform14" parent="." unique_id=909748431 instance=ExtResource("1_k0okc")]
+position = Vector2(743, 476)
+
+[node name="Platform15" parent="." unique_id=1984531130 instance=ExtResource("1_k0okc")]
+position = Vector2(807, 476)
+
+[node name="Platform16" parent="." unique_id=215019334 instance=ExtResource("1_k0okc")]
+position = Vector2(871, 476)
+
+[node name="Platform17" parent="." unique_id=1169758379 instance=ExtResource("1_k0okc")]
+position = Vector2(935, 476)
 
 [node name="Platform8" parent="." unique_id=1276576419 instance=ExtResource("1_k0okc")]
 position = Vector2(242, 249)
@@ -50,3 +76,414 @@ position = Vector2(314, 371)
 
 [node name="Player" parent="." unique_id=142832982 instance=ExtResource("2_6x3q2")]
 position = Vector2(383, 327)
+
+[node name="EvilSpike" parent="." unique_id=285438812 instance=ExtResource("4_13urm")]
+position = Vector2(266, 379)
+
+[node name="EvilSpikeBase" parent="." unique_id=1253525871 instance=ExtResource("5_6opdx")]
+position = Vector2(463, 460)
+
+[node name="EvilSpikeBase2" parent="." unique_id=2135245042 instance=ExtResource("5_6opdx")]
+position = Vector2(479, 460)
+
+[node name="EvilSpikeBase3" parent="." unique_id=1296923573 instance=ExtResource("5_6opdx")]
+position = Vector2(495, 460)
+
+[node name="EvilSpikeBase4" parent="." unique_id=1803960023 instance=ExtResource("5_6opdx")]
+position = Vector2(511, 460)
+
+[node name="EvilSpikeBase5" parent="." unique_id=219711840 instance=ExtResource("5_6opdx")]
+position = Vector2(527, 460)
+
+[node name="EvilSpikeBase6" parent="." unique_id=935336168 instance=ExtResource("5_6opdx")]
+position = Vector2(543, 460)
+
+[node name="EvilSpikeBase7" parent="." unique_id=106636917 instance=ExtResource("5_6opdx")]
+position = Vector2(559, 460)
+
+[node name="EvilSpikeBase8" parent="." unique_id=1861869289 instance=ExtResource("5_6opdx")]
+position = Vector2(575, 460)
+
+[node name="EvilSpikeBase9" parent="." unique_id=1872290588 instance=ExtResource("5_6opdx")]
+position = Vector2(591, 460)
+
+[node name="EvilSpikeBase10" parent="." unique_id=1482696627 instance=ExtResource("5_6opdx")]
+position = Vector2(607, 460)
+
+[node name="EvilSpikeBase11" parent="." unique_id=477709856 instance=ExtResource("5_6opdx")]
+position = Vector2(623, 460)
+
+[node name="EvilSpikeBase12" parent="." unique_id=714886611 instance=ExtResource("5_6opdx")]
+position = Vector2(639, 460)
+
+[node name="EvilSpikeBase13" parent="." unique_id=457864904 instance=ExtResource("5_6opdx")]
+position = Vector2(655, 460)
+
+[node name="EvilSpikeBase14" parent="." unique_id=1276646921 instance=ExtResource("5_6opdx")]
+position = Vector2(671, 460)
+
+[node name="EvilSpikeBase15" parent="." unique_id=1341473899 instance=ExtResource("5_6opdx")]
+position = Vector2(687, 460)
+
+[node name="EvilSpikeBase16" parent="." unique_id=1173212017 instance=ExtResource("5_6opdx")]
+position = Vector2(703, 460)
+
+[node name="EvilSpikeBase17" parent="." unique_id=148863478 instance=ExtResource("5_6opdx")]
+position = Vector2(719, 460)
+
+[node name="EvilSpikeBase18" parent="." unique_id=1063441862 instance=ExtResource("5_6opdx")]
+position = Vector2(735, 460)
+
+[node name="EvilSpikeBase19" parent="." unique_id=1498014215 instance=ExtResource("5_6opdx")]
+position = Vector2(751, 460)
+
+[node name="EvilSpikeBase20" parent="." unique_id=1767365881 instance=ExtResource("5_6opdx")]
+position = Vector2(767, 460)
+
+[node name="EvilSpikeBase21" parent="." unique_id=1834181335 instance=ExtResource("5_6opdx")]
+position = Vector2(783, 460)
+
+[node name="EvilSpikeBase22" parent="." unique_id=420750343 instance=ExtResource("5_6opdx")]
+position = Vector2(799, 460)
+
+[node name="EvilSpikeBase23" parent="." unique_id=109758794 instance=ExtResource("5_6opdx")]
+position = Vector2(815, 460)
+
+[node name="EvilSpikeBase24" parent="." unique_id=238081741 instance=ExtResource("5_6opdx")]
+position = Vector2(831, 460)
+
+[node name="EvilSpikeBase25" parent="." unique_id=1850543506 instance=ExtResource("5_6opdx")]
+position = Vector2(847, 460)
+
+[node name="EvilSpikeBase26" parent="." unique_id=1622293397 instance=ExtResource("5_6opdx")]
+position = Vector2(863, 460)
+
+[node name="EvilSpikeBase27" parent="." unique_id=13864720 instance=ExtResource("5_6opdx")]
+position = Vector2(879, 460)
+
+[node name="EvilSpikeBase28" parent="." unique_id=70429028 instance=ExtResource("5_6opdx")]
+position = Vector2(895, 460)
+
+[node name="EvilSpikeBase29" parent="." unique_id=1004757569 instance=ExtResource("5_6opdx")]
+position = Vector2(911, 460)
+
+[node name="EvilSpikeBase30" parent="." unique_id=1779693150 instance=ExtResource("5_6opdx")]
+position = Vector2(927, 460)
+
+[node name="EvilSpikeBase31" parent="." unique_id=675001846 instance=ExtResource("5_6opdx")]
+position = Vector2(943, 460)
+
+[node name="EvilSpikeBase32" parent="." unique_id=1841381547 instance=ExtResource("5_6opdx")]
+position = Vector2(959, 460)
+
+[node name="Platform18" parent="." unique_id=967464797 instance=ExtResource("1_k0okc")]
+position = Vector2(-25, 476)
+
+[node name="Platform19" parent="." unique_id=338214122 instance=ExtResource("1_k0okc")]
+position = Vector2(39, 476)
+
+[node name="Platform20" parent="." unique_id=1371040227 instance=ExtResource("1_k0okc")]
+position = Vector2(103, 476)
+
+[node name="Platform21" parent="." unique_id=1962285342 instance=ExtResource("1_k0okc")]
+position = Vector2(167, 476)
+
+[node name="Platform22" parent="." unique_id=58293844 instance=ExtResource("1_k0okc")]
+position = Vector2(231, 476)
+
+[node name="Platform23" parent="." unique_id=634598225 instance=ExtResource("1_k0okc")]
+position = Vector2(295, 476)
+
+[node name="Platform24" parent="." unique_id=222075794 instance=ExtResource("1_k0okc")]
+position = Vector2(359, 476)
+
+[node name="Platform25" parent="." unique_id=2091217905 instance=ExtResource("1_k0okc")]
+position = Vector2(423, 476)
+
+[node name="EvilSpikeBase33" parent="." unique_id=472734997 instance=ExtResource("5_6opdx")]
+position = Vector2(-49, 460)
+
+[node name="EvilSpikeBase34" parent="." unique_id=1454682632 instance=ExtResource("5_6opdx")]
+position = Vector2(-33, 460)
+
+[node name="EvilSpikeBase35" parent="." unique_id=920740358 instance=ExtResource("5_6opdx")]
+position = Vector2(-17, 460)
+
+[node name="EvilSpikeBase36" parent="." unique_id=884265726 instance=ExtResource("5_6opdx")]
+position = Vector2(-1, 460)
+
+[node name="EvilSpikeBase37" parent="." unique_id=870808068 instance=ExtResource("5_6opdx")]
+position = Vector2(15, 460)
+
+[node name="EvilSpikeBase38" parent="." unique_id=1977849051 instance=ExtResource("5_6opdx")]
+position = Vector2(31, 460)
+
+[node name="EvilSpikeBase39" parent="." unique_id=2093677978 instance=ExtResource("5_6opdx")]
+position = Vector2(47, 460)
+
+[node name="EvilSpikeBase40" parent="." unique_id=1997996491 instance=ExtResource("5_6opdx")]
+position = Vector2(63, 460)
+
+[node name="EvilSpikeBase41" parent="." unique_id=1210518120 instance=ExtResource("5_6opdx")]
+position = Vector2(79, 460)
+
+[node name="EvilSpikeBase42" parent="." unique_id=378019532 instance=ExtResource("5_6opdx")]
+position = Vector2(95, 460)
+
+[node name="EvilSpikeBase43" parent="." unique_id=1440478316 instance=ExtResource("5_6opdx")]
+position = Vector2(111, 460)
+
+[node name="EvilSpikeBase44" parent="." unique_id=593429353 instance=ExtResource("5_6opdx")]
+position = Vector2(127, 460)
+
+[node name="EvilSpikeBase45" parent="." unique_id=2064000497 instance=ExtResource("5_6opdx")]
+position = Vector2(143, 460)
+
+[node name="EvilSpikeBase46" parent="." unique_id=257329701 instance=ExtResource("5_6opdx")]
+position = Vector2(159, 460)
+
+[node name="EvilSpikeBase47" parent="." unique_id=541181651 instance=ExtResource("5_6opdx")]
+position = Vector2(175, 460)
+
+[node name="EvilSpikeBase48" parent="." unique_id=281957049 instance=ExtResource("5_6opdx")]
+position = Vector2(191, 460)
+
+[node name="EvilSpikeBase49" parent="." unique_id=303550412 instance=ExtResource("5_6opdx")]
+position = Vector2(207, 460)
+
+[node name="EvilSpikeBase50" parent="." unique_id=1971167233 instance=ExtResource("5_6opdx")]
+position = Vector2(223, 460)
+
+[node name="EvilSpikeBase51" parent="." unique_id=108508244 instance=ExtResource("5_6opdx")]
+position = Vector2(239, 460)
+
+[node name="EvilSpikeBase52" parent="." unique_id=1215542281 instance=ExtResource("5_6opdx")]
+position = Vector2(255, 460)
+
+[node name="EvilSpikeBase53" parent="." unique_id=817765157 instance=ExtResource("5_6opdx")]
+position = Vector2(271, 460)
+
+[node name="EvilSpikeBase54" parent="." unique_id=2007068476 instance=ExtResource("5_6opdx")]
+position = Vector2(287, 460)
+
+[node name="EvilSpikeBase55" parent="." unique_id=402258050 instance=ExtResource("5_6opdx")]
+position = Vector2(303, 460)
+
+[node name="EvilSpikeBase56" parent="." unique_id=468391286 instance=ExtResource("5_6opdx")]
+position = Vector2(319, 460)
+
+[node name="EvilSpikeBase57" parent="." unique_id=1051772853 instance=ExtResource("5_6opdx")]
+position = Vector2(335, 460)
+
+[node name="EvilSpikeBase58" parent="." unique_id=1871108002 instance=ExtResource("5_6opdx")]
+position = Vector2(351, 460)
+
+[node name="EvilSpikeBase59" parent="." unique_id=1496330684 instance=ExtResource("5_6opdx")]
+position = Vector2(367, 460)
+
+[node name="EvilSpikeBase60" parent="." unique_id=1021599512 instance=ExtResource("5_6opdx")]
+position = Vector2(383, 460)
+
+[node name="EvilSpikeBase61" parent="." unique_id=252683534 instance=ExtResource("5_6opdx")]
+position = Vector2(399, 460)
+
+[node name="EvilSpikeBase62" parent="." unique_id=730975932 instance=ExtResource("5_6opdx")]
+position = Vector2(415, 460)
+
+[node name="EvilSpikeBase63" parent="." unique_id=438450864 instance=ExtResource("5_6opdx")]
+position = Vector2(431, 460)
+
+[node name="EvilSpikeBase64" parent="." unique_id=319647369 instance=ExtResource("5_6opdx")]
+position = Vector2(447, 460)
+
+[node name="EvilSpike2" parent="." unique_id=1403721111 instance=ExtResource("4_13urm")]
+position = Vector2(-49, 444)
+
+[node name="EvilSpike3" parent="." unique_id=1967433573 instance=ExtResource("4_13urm")]
+position = Vector2(-33, 444)
+
+[node name="EvilSpike4" parent="." unique_id=1866918992 instance=ExtResource("4_13urm")]
+position = Vector2(-17, 444)
+
+[node name="EvilSpike5" parent="." unique_id=1407635769 instance=ExtResource("4_13urm")]
+position = Vector2(-1, 444)
+
+[node name="EvilSpike6" parent="." unique_id=466717529 instance=ExtResource("4_13urm")]
+position = Vector2(15, 444)
+
+[node name="EvilSpike7" parent="." unique_id=80342577 instance=ExtResource("4_13urm")]
+position = Vector2(31, 444)
+
+[node name="EvilSpike8" parent="." unique_id=1530384607 instance=ExtResource("4_13urm")]
+position = Vector2(47, 444)
+
+[node name="EvilSpike9" parent="." unique_id=1148967790 instance=ExtResource("4_13urm")]
+position = Vector2(63, 444)
+
+[node name="EvilSpike10" parent="." unique_id=627253123 instance=ExtResource("4_13urm")]
+position = Vector2(79, 444)
+
+[node name="EvilSpike11" parent="." unique_id=1532010483 instance=ExtResource("4_13urm")]
+position = Vector2(95, 444)
+
+[node name="EvilSpike12" parent="." unique_id=1416342066 instance=ExtResource("4_13urm")]
+position = Vector2(111, 444)
+
+[node name="EvilSpike13" parent="." unique_id=1681777958 instance=ExtResource("4_13urm")]
+position = Vector2(127, 444)
+
+[node name="EvilSpike14" parent="." unique_id=769362898 instance=ExtResource("4_13urm")]
+position = Vector2(143, 444)
+
+[node name="EvilSpike15" parent="." unique_id=2106972888 instance=ExtResource("4_13urm")]
+position = Vector2(159, 444)
+
+[node name="EvilSpike16" parent="." unique_id=428257002 instance=ExtResource("4_13urm")]
+position = Vector2(175, 444)
+
+[node name="EvilSpike17" parent="." unique_id=1010435237 instance=ExtResource("4_13urm")]
+position = Vector2(191, 444)
+
+[node name="EvilSpike18" parent="." unique_id=309379990 instance=ExtResource("4_13urm")]
+position = Vector2(207, 444)
+
+[node name="EvilSpike19" parent="." unique_id=583138248 instance=ExtResource("4_13urm")]
+position = Vector2(223, 444)
+
+[node name="EvilSpike20" parent="." unique_id=279712587 instance=ExtResource("4_13urm")]
+position = Vector2(239, 444)
+
+[node name="EvilSpike21" parent="." unique_id=1822817865 instance=ExtResource("4_13urm")]
+position = Vector2(255, 444)
+
+[node name="EvilSpike22" parent="." unique_id=67870257 instance=ExtResource("4_13urm")]
+position = Vector2(271, 444)
+
+[node name="EvilSpike23" parent="." unique_id=38036163 instance=ExtResource("4_13urm")]
+position = Vector2(287, 444)
+
+[node name="EvilSpike24" parent="." unique_id=976389377 instance=ExtResource("4_13urm")]
+position = Vector2(303, 444)
+
+[node name="EvilSpike25" parent="." unique_id=488483021 instance=ExtResource("4_13urm")]
+position = Vector2(319, 444)
+
+[node name="EvilSpike26" parent="." unique_id=365587575 instance=ExtResource("4_13urm")]
+position = Vector2(335, 444)
+
+[node name="EvilSpike27" parent="." unique_id=784045496 instance=ExtResource("4_13urm")]
+position = Vector2(351, 444)
+
+[node name="EvilSpike28" parent="." unique_id=1709693054 instance=ExtResource("4_13urm")]
+position = Vector2(367, 444)
+
+[node name="EvilSpike29" parent="." unique_id=343591249 instance=ExtResource("4_13urm")]
+position = Vector2(383, 444)
+
+[node name="EvilSpike30" parent="." unique_id=1185124244 instance=ExtResource("4_13urm")]
+position = Vector2(399, 444)
+
+[node name="EvilSpike31" parent="." unique_id=1630426443 instance=ExtResource("4_13urm")]
+position = Vector2(415, 444)
+
+[node name="EvilSpike32" parent="." unique_id=853521836 instance=ExtResource("4_13urm")]
+position = Vector2(431, 444)
+
+[node name="EvilSpike33" parent="." unique_id=184037680 instance=ExtResource("4_13urm")]
+position = Vector2(447, 444)
+
+[node name="EvilSpike34" parent="." unique_id=75494651 instance=ExtResource("4_13urm")]
+position = Vector2(463, 444)
+
+[node name="EvilSpike35" parent="." unique_id=1698616741 instance=ExtResource("4_13urm")]
+position = Vector2(479, 444)
+
+[node name="EvilSpike36" parent="." unique_id=466699547 instance=ExtResource("4_13urm")]
+position = Vector2(495, 444)
+
+[node name="EvilSpike37" parent="." unique_id=1336898185 instance=ExtResource("4_13urm")]
+position = Vector2(511, 444)
+
+[node name="EvilSpike38" parent="." unique_id=1418322773 instance=ExtResource("4_13urm")]
+position = Vector2(527, 444)
+
+[node name="EvilSpike39" parent="." unique_id=1280372974 instance=ExtResource("4_13urm")]
+position = Vector2(543, 444)
+
+[node name="EvilSpike40" parent="." unique_id=1972886906 instance=ExtResource("4_13urm")]
+position = Vector2(559, 444)
+
+[node name="EvilSpike41" parent="." unique_id=395020308 instance=ExtResource("4_13urm")]
+position = Vector2(575, 444)
+
+[node name="EvilSpike42" parent="." unique_id=694032764 instance=ExtResource("4_13urm")]
+position = Vector2(591, 444)
+
+[node name="EvilSpike43" parent="." unique_id=1166043819 instance=ExtResource("4_13urm")]
+position = Vector2(607, 444)
+
+[node name="EvilSpike44" parent="." unique_id=1754108881 instance=ExtResource("4_13urm")]
+position = Vector2(623, 444)
+
+[node name="EvilSpike45" parent="." unique_id=265299753 instance=ExtResource("4_13urm")]
+position = Vector2(639, 444)
+
+[node name="EvilSpike46" parent="." unique_id=1419817773 instance=ExtResource("4_13urm")]
+position = Vector2(655, 444)
+
+[node name="EvilSpike47" parent="." unique_id=1306215131 instance=ExtResource("4_13urm")]
+position = Vector2(671, 444)
+
+[node name="EvilSpike48" parent="." unique_id=509280035 instance=ExtResource("4_13urm")]
+position = Vector2(687, 444)
+
+[node name="EvilSpike49" parent="." unique_id=1257793764 instance=ExtResource("4_13urm")]
+position = Vector2(703, 444)
+
+[node name="EvilSpike50" parent="." unique_id=1588209250 instance=ExtResource("4_13urm")]
+position = Vector2(719, 444)
+
+[node name="EvilSpike51" parent="." unique_id=296802613 instance=ExtResource("4_13urm")]
+position = Vector2(735, 444)
+
+[node name="EvilSpike52" parent="." unique_id=1994614234 instance=ExtResource("4_13urm")]
+position = Vector2(751, 444)
+
+[node name="EvilSpike53" parent="." unique_id=324485738 instance=ExtResource("4_13urm")]
+position = Vector2(767, 444)
+
+[node name="EvilSpike54" parent="." unique_id=171687102 instance=ExtResource("4_13urm")]
+position = Vector2(783, 444)
+
+[node name="EvilSpike55" parent="." unique_id=1118597225 instance=ExtResource("4_13urm")]
+position = Vector2(799, 444)
+
+[node name="EvilSpike56" parent="." unique_id=39719449 instance=ExtResource("4_13urm")]
+position = Vector2(815, 444)
+
+[node name="EvilSpike57" parent="." unique_id=1721710086 instance=ExtResource("4_13urm")]
+position = Vector2(831, 444)
+
+[node name="EvilSpike58" parent="." unique_id=1237214774 instance=ExtResource("4_13urm")]
+position = Vector2(847, 444)
+
+[node name="EvilSpike59" parent="." unique_id=460750172 instance=ExtResource("4_13urm")]
+position = Vector2(863, 444)
+
+[node name="EvilSpike60" parent="." unique_id=151157934 instance=ExtResource("4_13urm")]
+position = Vector2(879, 444)
+
+[node name="EvilSpike61" parent="." unique_id=2139881899 instance=ExtResource("4_13urm")]
+position = Vector2(895, 444)
+
+[node name="EvilSpike62" parent="." unique_id=1620262069 instance=ExtResource("4_13urm")]
+position = Vector2(911, 444)
+
+[node name="EvilSpike63" parent="." unique_id=451608373 instance=ExtResource("4_13urm")]
+position = Vector2(927, 444)
+
+[node name="EvilSpike64" parent="." unique_id=1700855196 instance=ExtResource("4_13urm")]
+position = Vector2(943, 444)
+
+[node name="EvilSpike65" parent="." unique_id=609996257 instance=ExtResource("4_13urm")]
+position = Vector2(959, 444)
