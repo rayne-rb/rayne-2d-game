@@ -8,198 +8,196 @@ namespace dgameincsharp.Player;
 
 public partial class Player : CharacterBody2D
 {
-	[ExportGroup("Movement")] 
-	[Export] public float Speed = 45f;
-	[Export] public float Acceleration = 16f;
-	[Export] public float Deceleration = 18f;
-	[Export] public float JumpDeceleration = 12f;
-	[Export] public float JumpImpulse = 20f;
+    [ExportGroup("Movement")] [Export] public float Speed = 45f;
+    [Export] public float Acceleration = 16f;
+    [Export] public float Deceleration = 18f;
+    [Export] public float JumpDeceleration = 12f;
+    [Export] public float JumpImpulse = 20f;
 
-	[ExportGroup("Physics")] 
-	[Export] public float Gravity = -300f;
-	[Export] public float MaxVelocity = 300f;
+    [ExportGroup("Physics")] [Export] public float Gravity = -300f;
+    [Export] public float MaxVelocity = 300f;
 
-	[ExportGroup("General")] 
-	[Export] public AnimatedSprite2D PlayerSprite;
-	[Export] public Timer JumpTimer;
-	[Export] public MeleeAttackComponent MeleeAttackComponent;
-	[Export] public AudioStreamPlayer2D PlayerSound;
+    [ExportGroup("General")] [Export] public AnimatedSprite2D PlayerSprite;
+    [Export] public Timer JumpTimer;
+    [Export] public MeleeAttackComponent MeleeAttackComponent;
+    [Export] public AudioStreamPlayer2D PlayerSound;
 
-	public event EventHandler<string> PlayerDirectionChanged;
-	public string PlayerDirection = "right";
-	
-	public bool IsGrounded = false;
-	public bool WasGrounded = false;
-	public bool IsJumping = false;
-	public bool PriorityAnimationPlaying = false;
+    public event EventHandler<string> PlayerDirectionChanged;
+    public string PlayerDirection = "right";
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		if (MeleeAttackComponent != null)
-		{
-			MeleeAttackComponent.EntityAttacking += PlayAttackAnimation;
-			PlayerSprite.AnimationFinished += ReturnToNormalAnimation;
-		}
-		else
-		{
-			Loggy.Warning("Attack Component null!");
-		}
+    public bool IsGrounded = false;
+    public bool WasGrounded = false;
+    public bool IsJumping = false;
+    public bool PriorityAnimationPlaying = false;
 
-		if (PlayerSound == null)
-		{
-			Loggy.Warning("Player Sound null!");
-		}
-		
-		JumpTimer.OneShot = true;
-		Loggy.Info("Initializing Player...");
-	}
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        if (MeleeAttackComponent != null)
+        {
+            MeleeAttackComponent.EntityAttacking += PlayAttackAnimation;
+            PlayerSprite.AnimationFinished += ReturnToNormalAnimation;
+        }
+        else
+        {
+            Loggy.Warning("Attack Component null!");
+        }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(double delta)
-	{
-		Vector2 velocity = Velocity;
+        if (PlayerSound == null)
+        {
+            Loggy.Warning("Player Sound null!");
+        }
 
-		IsGrounded = IsOnFloor();
-		
-		if (IsGrounded)
-		{
-			if (Input.IsActionJustPressed("jump"))
-			{
-				velocity.Y = -JumpImpulse;
-				IsJumping = true;
-			}
-			else
-			{
-				IsJumping = false;
-				WasGrounded = true;
-			}
-		}
-		else
-		{
-			if (WasGrounded)
-			{
-				// Loggy.Debug("Jump timer started!");
-				JumpTimer.Start();
-				WasGrounded = false;
-			}
+        JumpTimer.OneShot = true;
+        Loggy.Info("Initializing Player...");
+    }
 
-			if (!JumpTimer.IsStopped())
-			{
-				// Loggy.Debug($"Jump Timer Time: {JumpTimer.TimeLeft}");
-				if (Input.IsActionJustPressed("jump"))
-				{
-					velocity.Y = -JumpImpulse;
-					IsJumping = true;
-					WasGrounded = false;
-				}
-			}
-			else
-			{
-				// Loggy.Debug("Jump timer stopped!");
-			}
-			
-			if (IsJumping)
-			{
-				if (velocity.Y < 0.0 && !Input.IsActionPressed("jump"))
-				{
-					velocity.Y -= Gravity * JumpDeceleration * (float)delta;
-					// velocity.Y = 0;
-				}
-				else
-				{
-					velocity.Y -= Gravity * (float)delta;
-				}
-			}
-			else
-			{
-				velocity.Y -= Gravity * (float)delta;
-			}
-			
-			if(velocity.Y < -MaxVelocity)
-				velocity.Y = -MaxVelocity;
-		}
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _PhysicsProcess(double delta)
+    {
+        Vector2 velocity = Velocity;
 
-		if (Input.IsActionPressed("move_right"))
-		{
-			if (!PriorityAnimationPlaying)
-			{
-				PlayerSprite.Animation = "Walk";
-			}
-			
-			velocity.X = Mathf.Lerp(velocity.X, Speed, Acceleration * (float)delta);
-			if (PlayerSprite != null)
-			{
-				PlayerSprite.FlipH = false;
-			}
+        IsGrounded = IsOnFloor();
 
-			if (PlayerDirection != "right")
-			{
-				PlayerDirection = "right";
-				
-				if (PlayerDirectionChanged != null)
-				{
-					PlayerDirectionChanged.Invoke(this, "right");
-				}
-			}
-		}
-		else if (Input.IsActionPressed("move_left"))
-		{
-			if (!PriorityAnimationPlaying)
-			{
-				PlayerSprite.Animation = "Walk";
-			}
-			velocity.X = Mathf.Lerp(velocity.X, -Speed, Acceleration * (float)delta);
-			if (PlayerSprite != null)
-			{
-				PlayerSprite.FlipH = true;
-			}
+        if (IsGrounded)
+        {
+            if (Input.IsActionJustPressed("jump"))
+            {
+                velocity.Y = -JumpImpulse;
+                IsJumping = true;
+            }
+            else
+            {
+                IsJumping = false;
+                WasGrounded = true;
+            }
+        }
+        else
+        {
+            if (WasGrounded)
+            {
+                // Loggy.Debug("Jump timer started!");
+                JumpTimer.Start();
+                WasGrounded = false;
+            }
 
-			if (PlayerDirection != "left")
-			{
-				PlayerDirection = "left";
-			
-				if (PlayerDirectionChanged != null)
-				{
-					PlayerDirectionChanged.Invoke(this, "left");
-				}
-			}
-		}
-		else
-		{
+            if (!JumpTimer.IsStopped())
+            {
+                // Loggy.Debug($"Jump Timer Time: {JumpTimer.TimeLeft}");
+                if (Input.IsActionJustPressed("jump"))
+                {
+                    velocity.Y = -JumpImpulse;
+                    IsJumping = true;
+                    WasGrounded = false;
+                }
+            }
+            else
+            {
+                // Loggy.Debug("Jump timer stopped!");
+            }
 
-			if (!PriorityAnimationPlaying)
-			{
-				PlayerSprite.Animation = "Idle";
-			}
-			velocity.X = Mathf.Lerp(velocity.X, 0, Deceleration * (float)delta);
-		}
+            if (IsJumping)
+            {
+                if (velocity.Y < 0.0 && !Input.IsActionPressed("jump"))
+                {
+                    velocity.Y -= Gravity * JumpDeceleration * (float)delta;
+                    // velocity.Y = 0;
+                }
+                else
+                {
+                    velocity.Y -= Gravity * (float)delta;
+                }
+            }
+            else
+            {
+                velocity.Y -= Gravity * (float)delta;
+            }
 
-		if (Input.IsActionPressed("look_down"))
-		{
-			
-		}
+            if (velocity.Y < -MaxVelocity)
+                velocity.Y = -MaxVelocity;
+        }
 
-		Velocity = velocity;
-		MoveAndSlide();
-	}
+        if (Input.IsActionPressed("move_right"))
+        {
+            if (!PriorityAnimationPlaying)
+            {
+                PlayerSprite.Animation = "Walk";
+            }
 
-	public void ReturnToNormalAnimation()
-	{
-		Loggy.Debug("Returning to normal animation!");
-		PriorityAnimationPlaying = false;
-		MeleeAttackComponent.IsAttacking = false;
-		PlayerSprite.Play();
-	}
+            velocity.X = Mathf.Lerp(velocity.X, Speed, Acceleration * (float)delta);
+            if (PlayerSprite != null)
+            {
+                PlayerSprite.FlipH = false;
+            }
 
-	public void PlayAttackAnimation(object? sender, EventArgs e)
-	{
-		Loggy.Debug("Playing Bite Animation!");
-		if (PlayerSound != null)
-		{
-			PlayerSound.Play();
-		}
-		PriorityAnimationPlaying = true;
-		PlayerSprite.Animation = "Bite";
-	}
+            if (PlayerDirection != "right")
+            {
+                PlayerDirection = "right";
+
+                if (PlayerDirectionChanged != null)
+                {
+                    PlayerDirectionChanged.Invoke(this, "right");
+                }
+            }
+        }
+        else if (Input.IsActionPressed("move_left"))
+        {
+            if (!PriorityAnimationPlaying)
+            {
+                PlayerSprite.Animation = "Walk";
+            }
+
+            velocity.X = Mathf.Lerp(velocity.X, -Speed, Acceleration * (float)delta);
+            if (PlayerSprite != null)
+            {
+                PlayerSprite.FlipH = true;
+            }
+
+            if (PlayerDirection != "left")
+            {
+                PlayerDirection = "left";
+
+                if (PlayerDirectionChanged != null)
+                {
+                    PlayerDirectionChanged.Invoke(this, "left");
+                }
+            }
+        }
+        else
+        {
+            if (!PriorityAnimationPlaying)
+            {
+                PlayerSprite.Animation = "Idle";
+            }
+
+            velocity.X = Mathf.Lerp(velocity.X, 0, Deceleration * (float)delta);
+        }
+
+        if (Input.IsActionPressed("look_down"))
+        {
+        }
+
+        Velocity = velocity;
+        MoveAndSlide();
+    }
+
+    public void ReturnToNormalAnimation()
+    {
+        Loggy.Debug("Returning to normal animation!");
+        PriorityAnimationPlaying = false;
+        MeleeAttackComponent.IsAttacking = false;
+        PlayerSprite.Play();
+    }
+
+    public void PlayAttackAnimation(object? sender, EventArgs e)
+    {
+        Loggy.Debug("Playing Bite Animation!");
+        if (PlayerSound != null)
+        {
+            PlayerSound.Play();
+        }
+
+        PriorityAnimationPlaying = true;
+        PlayerSprite.Animation = "Bite";
+    }
 }

@@ -27,7 +27,14 @@ public partial class MeleeAttackComponent : AttackComponent
 
         if (AnimationAttackDelayTimer != null)
         {
-            AnimationAttackDelayTimer.Timeout += Attack;
+            if (AlwaysActive)
+            {
+                AnimationAttackDelayTimer.Timeout += NotAttacking;
+            }
+            else
+            {
+                AnimationAttackDelayTimer.Timeout += Attack;
+            }
         }
         else
         {
@@ -47,6 +54,7 @@ public partial class MeleeAttackComponent : AttackComponent
         {
             if (!IsAttacking)
             {
+                IsAttacking = true;
                 Attack();
             }
         }
@@ -58,14 +66,15 @@ public partial class MeleeAttackComponent : AttackComponent
 
         if (@event.IsActionPressed("attack"))
         {
+            EntityAttacking?.Invoke(this, EventArgs.Empty);
             if (!IsAttacking)
             {
+                IsAttacking = true;
                 Loggy.Debug("Starting Attack Delay!");
-                EntityAttacking?.Invoke(this, EventArgs.Empty);
                 AnimationAttackDelayTimer.Start();
-                // Attack();
-                //Attack will happen when the timer times out.
             }
+            // Attack();
+            //Attack will happen when the timer times out.
         }
 
         base._UnhandledInput(@event);
@@ -83,12 +92,16 @@ public partial class MeleeAttackComponent : AttackComponent
                 {
                     if (child is HealthComponent healthComponent)
                     {
-                        IsAttacking = true;
                         DealDamage(healthComponent);
                     }
                 }
             }
         }
+    }
+
+    public void NotAttacking()
+    {
+        IsAttacking = false;
     }
 
     public void ChangeAttackDirection(object sender, string direction)
