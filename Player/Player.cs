@@ -23,6 +23,7 @@ public partial class Player : CharacterBody2D
 	[Export] public AnimatedSprite2D PlayerSprite;
 	[Export] public Timer JumpTimer;
 	[Export] public MeleeAttackComponent MeleeAttackComponent;
+	[Export] public AudioStreamPlayer2D PlayerSound;
 
 	public event EventHandler<string> PlayerDirectionChanged;
 	public string PlayerDirection = "right";
@@ -35,7 +36,6 @@ public partial class Player : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
 		if (MeleeAttackComponent != null)
 		{
 			MeleeAttackComponent.EntityAttacking += PlayAttackAnimation;
@@ -44,6 +44,11 @@ public partial class Player : CharacterBody2D
 		else
 		{
 			Loggy.Warning("Attack Component null!");
+		}
+
+		if (PlayerSound == null)
+		{
+			Loggy.Warning("Player Sound null!");
 		}
 		
 		JumpTimer.OneShot = true;
@@ -190,6 +195,10 @@ public partial class Player : CharacterBody2D
 	public void PlayAttackAnimation(object? sender, EventArgs e)
 	{
 		Loggy.Debug("Playing Bite Animation!");
+		if (PlayerSound != null)
+		{
+			PlayerSound.Play();
+		}
 		PriorityAnimationPlaying = true;
 		PlayerSprite.Animation = "Bite";
 	}

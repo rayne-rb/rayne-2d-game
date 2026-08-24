@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cpswc5robc7xm" path="res://Player/GulemarkSpriteSheet1.png" id="2_ddoul"]
 [ext_resource type="Script" uid="uid://cdyhu1j1ouq5" path="res://Components/HealthComponent.cs" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://g2kj84xutm71" path="res://Components/MeleeAttackComponent.cs" id="4_ddoul"]
+[ext_resource type="AudioStream" uid="uid://bh0xqcdeh3odj" path="res://Player/Chomp.mp3" id="6_6ysni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wb44"]
 atlas = ExtResource("2_8g4oa")
@@ -547,13 +548,14 @@ height = 46.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bijdq"]
 size = Vector2(36, 22)
 
-[node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite", "JumpTimer", "MeleeAttackComponent")]
+[node name="Player" type="CharacterBody2D" unique_id=142832982 node_paths=PackedStringArray("PlayerSprite", "JumpTimer", "MeleeAttackComponent", "PlayerSound")]
 script = ExtResource("1_q3lat")
 Speed = 80.0
 JumpImpulse = 200.0
 PlayerSprite = NodePath("AnimatedSprite2D")
 JumpTimer = NodePath("JumpTimer")
 MeleeAttackComponent = NodePath("MeleeAttackComponent")
+PlayerSound = NodePath("BiteSound")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=948715503]
 position = Vector2(0, -9)
@@ -592,3 +594,6 @@ metadata/_custom_type_script = "uid://g2kj84xutm71"
 position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_bijdq")
 debug_color = Color(0.96568924, 0, 0.4880948, 0.41960785)
+
+[node name="BiteSound" type="AudioStreamPlayer2D" parent="." unique_id=1235779997]
+stream = ExtResource("6_6ysni")
