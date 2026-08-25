@@ -191,13 +191,34 @@ public partial class Player : CharacterBody2D
 
     public void PlayAttackAnimation(object? sender, EventArgs e)
     {
-        Loggy.Debug("Playing Bite Animation!");
+        var random = new RandomNumberGenerator();
+        var randomNumber = random.RandiRange(0, 1);
+        
         if (PlayerSound != null)
         {
+            var stream = new AudioStream();
+            if (randomNumber == 0)
+            {
+                stream = GD.Load<AudioStream>("res://Player/Chomp.mp3");
+            }
+            else
+            {
+                stream = GD.Load<AudioStream>("res://Player/Chomp2.mp3");
+            }
+            PlayerSound.SetStream(stream);
             PlayerSound.Play();
         }
 
         PriorityAnimationPlaying = true;
-        PlayerSprite.Animation = "Bite";
+        if (randomNumber == 0)
+        {
+            Loggy.Debug("Playing Bite1!");
+            PlayerSprite.Animation = "Bite1";
+        }
+        else
+        {
+            Loggy.Debug("Playing Bite2!");
+            PlayerSprite.Animation = "Bite2";
+        }
     }
 }
