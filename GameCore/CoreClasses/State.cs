@@ -1,17 +1,19 @@
-using Godot;
 using System;
+using dgameincsharp.GameCore.Utility;
+using Godot;
 
 [GlobalClass]
 public partial class State : Node
 {
-	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+
+	public virtual void StateEnter(string previousStateName)
 	{
+		Loggy.Info("State Entered");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public virtual void StateExit(string nextStateName)
 	{
+		Loggy.Info("State Exited");
 	}
+	
 }

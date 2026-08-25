@@ -412,7 +412,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Bite2",
-"speed": 14.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -624,7 +624,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl2y2"]
 radius = 8.0
-height = 46.0
+height = 44.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bijdq"]
 size = Vector2(36, 22)
@@ -647,6 +647,7 @@ frame = 9
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568418195]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_kl2y2")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=595554100]
