@@ -163,6 +163,13 @@ public partial class Player : CharacterBody2D
                 }
             }
         }
+        else if (Input.IsActionPressed("look_down"))
+        {
+            if (!PriorityAnimationPlaying)
+            {
+                PlayerSprite.Animation = "Crouch";
+            }
+        }
         else
         {
             if (!PriorityAnimationPlaying)
@@ -173,8 +180,13 @@ public partial class Player : CharacterBody2D
             velocity.X = Mathf.Lerp(velocity.X, 0, Deceleration * (float)delta);
         }
 
-        if (Input.IsActionPressed("look_down"))
+        if (Input.IsActionJustPressed("look_down"))
         {
+            if (!PriorityAnimationPlaying)
+            {
+                PriorityAnimationPlaying = true;
+                PlayerSprite.Play("CrouchEnter");
+            }
         }
 
         Velocity = velocity;
@@ -193,7 +205,7 @@ public partial class Player : CharacterBody2D
     {
         var random = new RandomNumberGenerator();
         var randomNumber = random.RandiRange(0, 1);
-        
+
         if (PlayerSound != null)
         {
             var stream = new AudioStream();
@@ -205,6 +217,7 @@ public partial class Player : CharacterBody2D
             {
                 stream = GD.Load<AudioStream>("res://Player/Chomp2.mp3");
             }
+
             PlayerSound.SetStream(stream);
             PlayerSound.Play();
         }
